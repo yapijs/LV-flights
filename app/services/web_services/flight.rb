@@ -1,5 +1,5 @@
 module WebServices
-  class AirplaneRixList
+  class Flight
     def results
       if response.is_a?(Net::HTTPSuccess)
         json_document(response.body)
@@ -9,7 +9,7 @@ module WebServices
     end
 
     def response
-      @response ||= Net::HTTP.get_response(uri)
+      response ||= Net::HTTP.get_response(uri)
     end
 
     private
@@ -23,7 +23,7 @@ module WebServices
     end
 
     def url
-      @url ||= "https://opensky-network.org/api/flights/arrival?airport=EVRA&begin=1666699200&end=1667131200"
+      @url ||= "https://opensky-network.org/api/flights/aircraft?icao24=471f6a&begin=1666915200&end=1667260800"
     end
   end
 end

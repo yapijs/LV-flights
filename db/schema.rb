@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2022_11_02_110327) do
   end
 
   create_table "flights", force: :cascade do |t|
-    t.bigint "airplane_rix_list_id"
+    t.string "icao24"
     t.string "callsign"
     t.string "estDepartureAirport"
     t.string "estArrivalAirport"
@@ -30,8 +30,6 @@ ActiveRecord::Schema.define(version: 2022_11_02_110327) do
     t.datetime "lastSeen"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["airplane_rix_list_id"], name: "index_flights_on_airplane_rix_list_id"
   end
 
-  add_foreign_key "flights", "airplane_rix_lists"
 end
