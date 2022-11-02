@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  callsign: MyString
+  estDepartureAirport: MyString
+  estArrivalAirport: MyString
+  firstSeen: 2022-11-02 13:03:27
+  lastSeen: 2022-11-02 13:03:27
+
+two:
+  callsign: MyString
+  estDepartureAirport: MyString
+  estArrivalAirport: MyString
+  firstSeen: 2022-11-02 13:03:27
+  lastSeen: 2022-11-02 13:03:27
