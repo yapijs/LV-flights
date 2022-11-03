@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Icao24:</strong>
+  <%= @plane.icao24 %>
+</p>
+
+<p>
+  <strong>Visible:</strong>
+  <%= @plane.visible %>
+</p>
+
+<%= link_to 'Edit', edit_plane_path(@plane) %> |
+<%= link_to 'Back', planes_path %>

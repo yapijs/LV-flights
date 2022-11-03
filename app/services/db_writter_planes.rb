@@ -1,4 +1,4 @@
-class DbWritterAllPlanes
+class DbWritterPlanes
   
   def records
     results.map { |data| 
@@ -24,7 +24,7 @@ class DbWritterAllPlanes
 
   private
   def service
-    @service ||= WebServices::AirplaneRixList.new
+    @service ||= WebServices::Plane.new
   end
 
   def results
@@ -32,14 +32,15 @@ class DbWritterAllPlanes
   end
 
   def delete_records
-    ::AirplaneRixList.delete_all
+    ::Plane.delete_all
   end
 
   def save_records
     records.each do |record|
       puts records
-      entry = AirplaneRixList.find_or_initialize_by(
-        icao24: record
+      entry = Plane.find_or_initialize_by(
+        icao24: record,
+        visible: false
       )
       
       entry.save!

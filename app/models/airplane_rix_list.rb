@@ -1,3 +1,0 @@
-class AirplaneRixList < ApplicationRecord
-  
-end

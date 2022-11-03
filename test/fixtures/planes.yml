@@ -2,6 +2,8 @@
 
 one:
   icao24: MyString
+  visible: false
 
 two:
   icao24: MyString
+  visible: false

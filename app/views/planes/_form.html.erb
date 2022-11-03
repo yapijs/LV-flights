@@ -1,0 +1,27 @@
+<%= form_with(model: plane) do |form| %>
+  <% if plane.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plane.errors.count, "error") %> prohibited this plane from being saved:</h2>
+
+      <ul>
+        <% plane.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :icao24 %>
+    <%= form.text_field :icao24 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :visible %>
+    <%= form.check_box :visible %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
