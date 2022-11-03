@@ -2,12 +2,23 @@
 
 <h1>Planes</h1>
 
+<div>
+  <%= form_with url: "/planes", method: :post do |form| %>
+    <%= form.label :start, "Start date:"%>
+    <%= form.date_field :start %>
+    <%= form.label :end, "End date:"%>
+    <%= form.date_field :end %>
+    <br>
+    <%= form.submit "Set Period" %>
+    <% form.submit :enabled %>
+  <% end %>
+</div>  
+
+
 <table>
   <thead>
     <tr>
-      <th>Icao24</th>
-      <th>Visible</th>
-      <th colspan="3"></th>
+      <th>Plane number</th>
     </tr>
   </thead>
 

@@ -1,5 +1,12 @@
 module WebServices
     class Plane
+      attr_reader :start_date, :end_date
+
+      def initialize(start_date, end_date)
+        @start_date = Time.parse(start_date).to_i
+        @end_date = Time.parse(end_date).to_i
+      end
+
       def results
         if response.is_a?(Net::HTTPSuccess)
           json_document(response.body)
@@ -23,7 +30,7 @@ module WebServices
       end
   
       def url
-        @url ||= "https://opensky-network.org/api/flights/arrival?airport=EVRA&begin=1666699200&end=1667131200"
+        @url ||= "https://opensky-network.org/api/flights/arrival?airport=EVRA&begin=#{start_date}&end=#{end_date}"
       end
     end
   end

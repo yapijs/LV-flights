@@ -1,3 +1,3 @@
 class Flight < ApplicationRecord
-    belongs_to :plane
+  belongs_to :plane
 end
