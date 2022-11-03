@@ -37,7 +37,6 @@ class DbWritterPlanes
 
   def save_records
     records.each do |record|
-      puts records
       entry = Plane.find_or_initialize_by(
         icao24: record,
         visible: false

@@ -43,16 +43,18 @@
   
     def save_records
       records.each do |record|
+        plane = Plane.find_by_icao24(record[:icao24])
         entry = Flight.new(
-          icao24: record[:icao24],
+          # icao24: record[:icao24],
           callsign: record[:callsign],
           firstSeen: record[:firstSeen],
           lastSeen: record[:lastSeen],
           estDepartureAirport: record[:estDepartureAirport],
           estArrivalAirport: record[:estArrivalAirport]
         )
+        plane.flights.create(entry).save!
 
-        entry.save!
+#        entry.save!
       end
     end
   end
