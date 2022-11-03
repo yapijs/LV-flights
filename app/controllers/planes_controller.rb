@@ -10,15 +10,6 @@ class PlanesController < ApplicationController
   def show
   end
 
-  # GET /planes/new
-  def new
-    @plane = Plane.new
-  end
-
-  # GET /planes/1/edit
-  def edit
-  end
-
   def create
     start_date = time_params[:start]
     end_date = time_params[:end]
@@ -29,12 +20,19 @@ class PlanesController < ApplicationController
 
   def delete
     Plane.delete_all
-
     redirect_to planes_url
   end
 
   private
+    def set_plane
+      @plane = Plane.find(id_params[:id])
+    end
+
     def time_params
       params.permit(:start, :end)
+    end
+
+    def id_params
+      params.permit(:id)
     end
 end

@@ -38,6 +38,7 @@ class DbWritterPlanes
   end
 
   def delete_records
+    ::Flight.delete_all
     ::Plane.delete_all
   end
 
