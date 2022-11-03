@@ -19,34 +19,21 @@ class PlanesController < ApplicationController
   def edit
   end
 
-  # POST /planes or /planes.json
   def create
-    
-      start_date = time_params[:start]
-      end_date = time_params[:end]
-      # head 200
-      DbWritterPlanes.new(start_date, end_date).load  
-      redirect_to planes_url
+    start_date = time_params[:start]
+    end_date = time_params[:end]
+    # head 200
+    DbWritterPlanes.new(start_date, end_date).load  
+    redirect_to planes_url
   end
 
+  def delete
+    Plane.delete_all
 
-  # DELETE /planes/1 or /planes/1.json
-  def destroy
-    @plane.destroy
-
-    respond_to do |format|
-      format.html { redirect_to planes_url, notice: "Plane was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to planes_url
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_plane
-      # @plane = Plane.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
     def time_params
       params.permit(:start, :end)
     end

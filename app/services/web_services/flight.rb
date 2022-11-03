@@ -1,5 +1,13 @@
 module WebServices
   class Flight
+    attr_reader :start_date, :end_date, :icao24
+
+    def initialize(start_date, end_date, icao24)
+      @start_date = Time.parse(start_date).to_i
+      @end_date = Time.parse(end_date).to_i
+      @icao24 = icao24
+    end
+
     def results
       if response.is_a?(Net::HTTPSuccess)
         json_document(response.body)
@@ -13,7 +21,6 @@ module WebServices
     end
 
     private
-
     def uri
       @uri ||= URI(url)
     end
@@ -23,7 +30,7 @@ module WebServices
     end
 
     def url
-      @url ||= "https://opensky-network.org/api/flights/aircraft?icao24=471f6a&begin=1666915200&end=1667260800"
+      @url ||= "https://opensky-network.org/api/flights/aircraft?icao24=#{@icao24}&begin=#{@start_date}&end=#{@end_date}"
     end
   end
 end

@@ -28,7 +28,6 @@
         <td><%= plane.icao24 %></td>
         <td><%= plane.visible %></td>
         <td><%= link_to 'Show', plane %></td>
-        <td><%= link_to 'Edit', edit_plane_path(plane) %></td>
         <td><%= link_to 'Destroy', plane, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -37,4 +36,8 @@
 
 <br>
 
-<%= link_to 'New Plane', new_plane_path %>
+<div>
+  <%= form_with url: "/planes", method: :delete do |form| %>
+    <%= form.submit "Delete list of planes" %>
+  <% end %>
+</div>  

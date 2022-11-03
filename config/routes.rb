@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   root "planes#index"
   
   post "/planes", to: "planes#create"
-  # resources :planes
-  # resources :flights
+  delete "/planes", to: "planes#delete"
   resources :planes do
     resources :flights
   end

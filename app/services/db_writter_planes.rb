@@ -28,7 +28,7 @@ class DbWritterPlanes
   end
 
 
-  # private
+  private
   def service
     @service ||= WebServices::Plane.new(start_date, end_date)
   end

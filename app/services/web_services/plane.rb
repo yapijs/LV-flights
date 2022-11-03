@@ -30,7 +30,7 @@ module WebServices
       end
   
       def url
-        @url ||= "https://opensky-network.org/api/flights/arrival?airport=EVRA&begin=#{start_date}&end=#{end_date}"
+        @url ||= "https://opensky-network.org/api/flights/arrival?airport=EVRA&begin=#{@start_date}&end=#{@end_date}"
       end
     end
   end
