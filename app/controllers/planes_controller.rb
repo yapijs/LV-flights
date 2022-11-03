@@ -1,5 +1,5 @@
 class PlanesController < ApplicationController
-  before_action :set_plane, only: %i[ show edit update destroy ]
+  before_action :set_plane, only: %i[ show edit update destroy request_flights ]
 
   # GET /planes or /planes.json
   def index
@@ -13,9 +13,17 @@ class PlanesController < ApplicationController
   def create
     start_date = time_params[:start]
     end_date = time_params[:end]
-    # head 200
+    head 200
     DbWritterPlanes.new(start_date, end_date).load  
     redirect_to planes_url
+  end
+
+  def request_flights
+    @plane.visible = false
+    plane_params = params[:plane]
+    # head 200
+    DbWritterFlights.new(plane_params[:start], plane_params[:end], @plane[:icao24]).load  
+    redirect_to @plane
   end
 
   def delete
@@ -29,7 +37,7 @@ class PlanesController < ApplicationController
     end
 
     def time_params
-      params.permit(:start, :end)
+      params.permit(:start, :end, :plane)
     end
 
     def id_params

@@ -5,9 +5,21 @@
   <%= @plane.icao24 %>
 </p>
 
-<p>
-  <strong>Visible:</strong>
-  <%= @plane.visible %>
+<div>
+  <% if @plane.visible? %>
+    <%= form_with model: @plane, method: :post do |form| %>
+      <%= form.label :start, "Start date:"%>
+      <%= form.date_field :start %>
+      <%= form.label :end, "End date:"%>
+      <%= form.date_field :end %>
+      <br>
+      <%= form.submit "Request data" %>
+    <% end %>
+  <% end %>
+</div>  
+  
 </p>
+
+<%= render @plane.flights %>
 
 <%= link_to 'Back', planes_path %>

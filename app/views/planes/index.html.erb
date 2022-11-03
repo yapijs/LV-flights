@@ -3,14 +3,13 @@
 <h1>Planes</h1>
 
 <div>
-  <%= form_with url: "/planes", method: :post do |form| %>
+  <%= form_with url: "/planes/", method: :post do |form| %>
     <%= form.label :start, "Start date:"%>
     <%= form.date_field :start %>
     <%= form.label :end, "End date:"%>
     <%= form.date_field :end %>
     <br>
     <%= form.submit "Set Period" %>
-    <% form.submit :enabled %>
   <% end %>
 </div>  
 

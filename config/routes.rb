@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   post "/planes", to: "planes#create"
   delete "/planes", to: "planes#delete"
+  post "/planes/:id", to: "planes#request_flights"
   resources :planes do
     resources :flights
   end
