@@ -13,7 +13,7 @@ class PlanesController < ApplicationController
   def create
     start_date = time_params[:start]
     end_date = time_params[:end]
-    head 200
+    # head 200
     DbWritterPlanes.new(start_date, end_date).load  
     redirect_to planes_url
   end
@@ -27,7 +27,7 @@ class PlanesController < ApplicationController
   end
 
   def delete
-    Plane.delete_all
+    Plane.destroy_all
     redirect_to planes_url
   end
 

@@ -1,41 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Planes</h1>
-
 <div>
-  <%= form_with url: "/planes/", method: :post do |form| %>
-    <%= form.label :start, "Start date:"%>
-    <%= form.date_field :start %>
-    <%= form.label :end, "End date:"%>
-    <%= form.date_field :end %>
-    <br>
-    <%= form.submit "Set Period" %>
-  <% end %>
-</div>  
+  <h1>Planes</h1>
+  <h3>Select the interval to get planes, which have been in Riga</h3>
 
-
-<table>
-  <thead>
-    <tr>
-      <th>Plane number</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @planes.each do |plane| %>
-      <tr>
-        <td><%= plane.icao24 %></td>
-        <td><%= plane.visible %></td>
-        <td><%= link_to 'Show', plane %></td>
-      </tr>
+  <div>
+    <%= form_with url: "/planes/", method: :post do |form| %>
+      <%= form.label :start, "Start date:"%>
+      <%= form.date_field :start %><br><br>
+      <%= form.label :end, "End date:"%>
+      <%= form.date_field :end %>
+      <br>
+      <%= form.submit "Set Period" %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+  </div>  
 
 <div>
-  <%= form_with url: "/planes", method: :delete do |form| %>
-    <%= form.submit "Delete list of planes" %>
+  <% if Plane.count == 0 %>
+    <h3>List of planes will appear here</h3> 
+  <% else %>
+    <h3>Cool! Here are your data!</h3> 
   <% end %>
-</div>  
+</div>
+
+<div class= "planes">
+  <table>
+    <thead>
+      <tr>
+        <th>Plane number</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <% @planes.each do |plane| %>
+        <tr>
+          <td><%= plane.icao24 %></td>
+          <td><%= link_to 'Show', plane %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+  <br>
+
+  <div>
+    <%= form_with url: "/planes", method: :delete do |form| %>
+      <%= form.submit "Delete list of planes" %>
+    <% end %>
+  </div>  
+</div>

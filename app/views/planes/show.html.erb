@@ -6,7 +6,9 @@
 </p>
 
 <div>
-  <% if @plane.visible? %>
+  <% if @plane.flights.count == 0 %>
+
+    <h3>Select the interval, where planes, which have been in Riga, have been to:</h3> 
     <%= form_with model: @plane, method: :post do |form| %>
       <%= form.label :start, "Start date:"%>
       <%= form.date_field :start %>

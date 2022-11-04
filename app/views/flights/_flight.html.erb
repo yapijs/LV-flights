@@ -1,26 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Callsign:</strong>
-  <%= flight.callsign %>
-</p>
 
-<p>
-  <strong>Estdepartureairport:</strong>
-  <%= flight.estDepartureAirport %>
-</p>
+<table>
 
-<p>
-  <strong>Estarrivalairport:</strong>
-  <%= flight.estArrivalAirport %>
-</p>
+    <tbody>
+        <tr>
+          <td><%= flight.callsign %></td>
+          <td><%= flight.firstSeen %></td>
+          <td><%= flight.lastSeen %></td>
+          <td><%= flight.estDepartureAirport %></td>
+          <td><%= flight.estArrivalAirport %></td>
 
-<p>
-  <strong>Firstseen:</strong>
-  <%= flight.firstSeen %>
-</p>
 
-<p>
-  <strong>Last seen</strong>
-  <%= flight.lastSeen %>
-</p>
+        </tr>
+    </tbody>
+  </table>
+
+ 
