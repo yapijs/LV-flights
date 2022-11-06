@@ -13,7 +13,6 @@ class PlanesController < ApplicationController
   def create
     start_date = time_params[:start]
     end_date = time_params[:end]
-    # head 200
     DbWritterPlanes.new(start_date, end_date).load  
     redirect_to planes_url
   end
@@ -21,7 +20,6 @@ class PlanesController < ApplicationController
   def request_flights
     @plane.visible = false
     plane_params = params[:plane]
-    # head 200
     DbWritterFlights.new(plane_params[:start], plane_params[:end], @plane[:icao24]).load  
     redirect_to @plane
   end

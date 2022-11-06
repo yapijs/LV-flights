@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Plane number</strong>
-  <%= @plane.icao24 %>
-</p>
+<div class="plane_name">
+  <h2>
+    Plane number
+    <%= @plane.icao24 %>
+  </h2>
+</div>
 
 <div>
   <% if @plane.flights.count == 0 %>

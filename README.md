@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app gets all planes (unique airplane manufacturer code - icao24) from [openskynetwork public api](https://openskynetwork.github.io/opensky-api/) , which have been in airport of Riga (icao code - EVRA).
+After that it allows to select plane and find out, where is airplane have been in selected interval.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+More updates to come.. 
